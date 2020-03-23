@@ -1,0 +1,10 @@
+@keyframes menuLtoR {
+    80% {
+        transform: translateX(0);   
+    }
+    
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
