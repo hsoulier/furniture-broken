@@ -1,63 +1,62 @@
-const menu = document.querySelector('.leftContainer i');
-const menuLinks = document.querySelector('ul.menuContainer');
-const links = menuLinks.querySelectorAll('li');
-const leftPanel = document.querySelector('.leftContainer');
-const centerPanel = document.querySelector('.centerContainer');
-const rightPanel = document.querySelector('.rightContainer');
+feather.replace()
 
-window.addEventListener('load', () => {
-    
-
-    const load = new TimelineLite();
-    load.to(leftPanel, 2, {
-            y: 0
-        })
-        .to(leftPanel.querySelector('h1'), 1.5, {
-            y: 0,
-            opacity: 1
-        }, '+=0.5')
-        .to(centerPanel, 2.3, {
-            y: 0
-        }, '-=2.1')
-        .to(rightPanel.querySelector('img'), 1.75, {
-            y: 0
-        }, '-=2.5')
-        .to(rightPanel.querySelector('.rightContainer__text'), 1.75, {
-            y: 0
-        }, '-=1.5')
-        .to(rightPanel.querySelectorAll('.rightContainer__text *'), 0.8, {
-            x: 0,
-            opacity: 1,
-            ease: Power1.easeInOut,
-            delay: i => i * 0.35,
-        }, "-=0.5")
+document.querySelector('.navbar__menu').addEventListener('click', () => {
+    console.log('collapsed')
 })
-
-const tl = new TimelineLite({
-    paused: true,
-    reversed: true
-});
-
-tl.fromTo(menuLinks, 0.25, {
+function leaveAnimation() {
+    const tl = gsap.timeline()
+    tl.to(document.querySelectorAll(".img-anim"), {
+        x: '70%',
         opacity: 0,
-        height: 0
-    }, {
-        opacity: 1,
-        height: '5rem',
+        stagger: 0.1,
+        duration: 0.5,
+        ease: "power3.in"
     })
-    .fromTo(links, {
-        x: -20,
-        opacity: 0
-    }, {
+    tl.to(document.querySelectorAll('.infos__container'), {
+        y: "50%",
+        opacity: 0,
+        duration: 0.5,
+        ease: "power2.in"
+    }, "-=0.3")
+}
+function enterAnimation() {
+    const tl = gsap.timeline()
+    tl.to(document.querySelectorAll(".img-anim"), {
         x: 0,
         opacity: 1,
-        ease: Power1.easeInOut,
-        delay: i => i * 0.3,
-    }, '-=0.3')
+        stagger: 0.1,
+        duration: 0.5,
+        ease: "power3.in"
+    })
+    tl.to(document.querySelectorAll('.infos__container'), {
+        y: "0%",
+        opacity: 1,
+        duration: 0.5,
+        ease: "power2.in"
+    }, "-=0.3")
+    console.log(tl)
+} 
 
+window.addEventListener('DOMContentLoaded', () => {
+    barba.init({
+        transitions: [{
+            once(data) {
+                console.log("once");
+                enterAnimation()
+            },
+            enter() {
+                enterAnimation()
+                console.log("enter");
+            },
+            leave() {
+                const done = this.async()
+                leaveAnimation()
+                setTimeout(function () {
+                    done()
+                }, 800)
+                console.log("leave");
+            },
 
-menu.addEventListener('click', () => {
-    tl.reversed() ? tl.play() : tl.reverse();
+        }]
+    })
 })
-
-
