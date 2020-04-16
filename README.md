@@ -1,6 +1,3 @@
 # Furniture
 
-Webite created on a mockup created by [Ashutosh](https://dribbble.com/ashutoshnirwan) on Dribbble.
-
-
-This is a personnal project for understand the principles of the JS library GSAP. 
+This is a personnal project to play with BarbaJS and do some tricks with SCSS on a broken grid layout. 
