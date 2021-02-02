@@ -1,24 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,800&family=Source+Sans+Pro:wght@300;400;600&display=swap");
+
 *,
 *:before,
 *:after {
     margin: 0;
     padding: 0;
-    box-sizing: border-box
+    box-sizing: border-box;
 }
 
 body {
     font-size: 16px;
     font-family: $fontSans;
-    text-rendering: optimizeLegibility !important;
-    -webkit-font-smoothing: antialiased !important;
+    background: rgb(239, 237, 237);
     width: 100%;
-    height: 100vh;
-    overflow: hidden;
+    font-weight: 300;
+    overflow-x: hidden;
+    // @include screen-min("tablet") {
+    // height: 100vh;
+    // overflow: hidden;
+    // }
 }
 
-
 img {
-    max-height: 100%;
+    height: 100%;
     width: 100%;
     object-fit: cover;
 }
@@ -26,4 +30,3 @@ img {
 ul {
     list-style: none;
 }
-

@@ -1,63 +1,98 @@
-const menu = document.querySelector('.leftContainer i');
-const menuLinks = document.querySelector('ul.menuContainer');
-const links = menuLinks.querySelectorAll('li');
-const leftPanel = document.querySelector('.leftContainer');
-const centerPanel = document.querySelector('.centerContainer');
-const rightPanel = document.querySelector('.rightContainer');
+import gsap from "gsap"
 
-window.addEventListener('load', () => {
-    
+const grid = document.getElementById("grid-master")
+const menu = document.querySelector(".menu-burger")
+const menuLinks = document.querySelector("ul.menu-container")
+const links = menuLinks.querySelectorAll("li")
+const leftPanel = document.querySelector(".left-container")
+const mainImg = document.querySelector(".master-image")
+const sideImg = document.querySelector(".side-image")
+const desc = document.querySelector(".description")
+const navigation = document.querySelector(".left-container__chevron")
+const descEls = document.querySelectorAll(".description *")
 
-    const load = new TimelineLite();
-    load.to(leftPanel, 2, {
-            y: 0
+window.addEventListener("load", () => {
+    const load = gsap.timeline({ defaults: { ease: "power2.inOut" } })
+    load.to(grid, { visibility: "visible", duration: 0.05 })
+        .from(mainImg, {
+            y: -50,
+            opacity: 0,
+            duration: 0.8,
         })
-        .to(leftPanel.querySelector('h1'), 1.5, {
-            y: 0,
-            opacity: 1
-        }, '+=0.5')
-        .to(centerPanel, 2.3, {
-            y: 0
-        }, '-=2.1')
-        .to(rightPanel.querySelector('img'), 1.75, {
-            y: 0
-        }, '-=2.5')
-        .to(rightPanel.querySelector('.rightContainer__text'), 1.75, {
-            y: 0
-        }, '-=1.5')
-        .to(rightPanel.querySelectorAll('.rightContainer__text *'), 0.8, {
-            x: 0,
-            opacity: 1,
-            ease: Power1.easeInOut,
-            delay: i => i * 0.35,
-        }, "-=0.5")
+        .from(
+            sideImg,
+            {
+                x: 20,
+                opacity: 0,
+                duration: 0.5,
+            },
+            "-=.5"
+        )
+        .from(leftPanel, {
+            y: -50,
+            opacity: 0,
+            duration: 1,
+        })
+        .from(navigation, {
+            opacity: 0,
+            duration: 0.5,
+        })
+        .from(
+            leftPanel.querySelector("h1"),
+            {
+                y: 50,
+                opacity: 0,
+                duration: 1.5,
+            },
+            "-=0.5"
+        )
+        .from(desc, {
+            opacity: 0,
+            duration: 0.5,
+        })
+        .from(
+            descEls,
+            {
+                x: -20,
+                opacity: 0,
+                duration: 0.5,
+                stagger: 0.2,
+            },
+            "-=0.3"
+        )
 })
 
-const tl = new TimelineLite({
+const tl = gsap.timeline({
     paused: true,
-    reversed: true
-});
+    reversed: true,
+})
 
-tl.fromTo(menuLinks, 0.25, {
+tl.fromTo(
+    menuLinks,
+    {
         opacity: 0,
-        height: 0
-    }, {
+        height: 0,
+    },
+    {
         opacity: 1,
-        height: '5rem',
-    })
-    .fromTo(links, {
+        height: "5rem",
+        duration: 0.25,
+    }
+).fromTo(
+    links,
+    {
         x: -20,
-        opacity: 0
-    }, {
+        opacity: 0,
+    },
+    {
         x: 0,
         opacity: 1,
-        ease: Power1.easeInOut,
-        delay: i => i * 0.3,
-    }, '-=0.3')
+        ease: "power1.inOut",
+        delay: (i) => i * 0.3,
+    },
+    "-=0.3"
+)
 
-
-menu.addEventListener('click', () => {
-    tl.reversed() ? tl.play() : tl.reverse();
+menu.addEventListener("click", () => {
+    tl.reversed() ? tl.play() : tl.reverse()
 })
-
-

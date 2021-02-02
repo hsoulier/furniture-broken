@@ -1,3 +1,11 @@
+$fontSans: "Source Sans Pro", sans-serif;
+$fontSerif: "Playfair Display", serif;
 
-$fontSans: 'Source Sans Pro', sans-serif;
-$fontSerif: 'Playfair Display', serif;
+$black: black;
+$white: white;
+
+$breakpoints: (
+    "tablet": 767px,
+    "laptop": 992px,
+    "desktop": 1280px,
+) !default;

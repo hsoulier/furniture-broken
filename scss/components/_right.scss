@@ -1,0 +1,56 @@
+.side-image {
+    grid-area: side-image;
+}
+
+.description {
+    grid-area: description;
+    background: $black;
+    color: $white;
+    padding: 2rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    // @include screen-min("tablet") {
+    //     padding: 1rem;
+    // }
+    @include screen-min("desktop") {
+        padding: 2rem;
+    }
+
+    div {
+        user-select: none;
+        font-family: $fontSerif;
+        font-size: 8rem;
+        line-height: 1.2;
+        font-weight: 800;
+    }
+
+    p {
+        line-height: 1.8;
+    }
+
+    a {
+        position: relative;
+        display: inline-block;
+        padding: 0.25rem 0.5rem;
+        margin-top: 2rem;
+        text-decoration: none;
+        color: $black;
+        font-weight: bolder;
+        z-index: 1;
+        font-size: 1.2rem;
+        font-weight: 600;
+
+        &::before {
+            position: absolute;
+            content: "";
+            top: 0;
+            left: 0;
+            background: $white;
+            z-index: -1;
+            width: 100%;
+            height: 100%;
+        }
+    }
+}

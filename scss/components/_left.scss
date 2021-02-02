@@ -1,0 +1,81 @@
+.left-container {
+    background: $white;
+    grid-area: title;
+    position: relative;
+    min-width: 4.5rem;
+
+    &__menu {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 5px 20px;
+        flex-direction: row-reverse;
+        position: fixed;
+        width: 100%;
+        z-index: 50;
+        @include screen-min("desktop") {
+            flex-direction: row;
+            position: static;
+        }
+        // animation: menuLtoR 1s 1.5s ease-out forwards;
+    }
+
+    &__menu h2 {
+        text-transform: uppercase;
+        font-size: 1.2rem;
+        @include screen-min("tablet") {
+            color: $white;
+        }
+        @include screen-min("desktop") {
+            color: $black;
+        }
+    }
+
+    &__menu .menu-burger {
+        border: none;
+        outline: none;
+        background-color: transparent;
+        font-size: 1.6rem;
+        padding: 5px;
+        height: 2rem;
+        width: 2rem;
+        cursor: pointer;
+        position: relative;
+    }
+
+    &__title {
+        z-index: 1;
+        user-select: none;
+        font-family: $fontSerif;
+        font-size: 2.5rem;
+        writing-mode: vertical-rl;
+        text-orientation: sideways-right;
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: rotate(-180deg) translateX(50%);
+    }
+
+    &__chevron {
+        top: 80%;
+        transform: translateX(50%);
+        right: 0;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        i {
+            padding: 1rem;
+            display: block;
+            cursor: pointer;
+        }
+        .prev {
+            background: $black;
+            color: $white;
+        }
+        .next {
+            background: $white;
+            color: $black;
+        }
+    }
+}
