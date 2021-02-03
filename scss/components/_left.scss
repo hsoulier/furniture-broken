@@ -40,10 +40,9 @@
         width: 2rem;
         cursor: pointer;
         position: relative;
-        background-color: pink;
     }
-    &__menu.menu-burger.open ~ .menu-container {
-        
+    &__menu.open ~ .menu-container a {
+        pointer-events: all;
     }
 
     &__title {

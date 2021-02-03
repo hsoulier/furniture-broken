@@ -5639,52 +5639,104 @@ window.addEventListener("load", function () {
 var _gsap = require("gsap");
 
 var menuLinks = document.querySelector("ul.menu-container");
-var menu = document.querySelector(".menu-burger");
+var menuBurger = document.querySelector(".menu-burger");
 var links = menuLinks.querySelectorAll("li");
 
 var tl = _gsap.gsap.timeline({
   paused: true,
-  reversed: true
-}); // tl.fromTo(
-//     menuLinks,
-//     {
-//         opacity: 0,
-//         height: 0,
-//     },
-//     {
-//         opacity: 1,
-//         height: "5rem",
-//         duration: 0.25,
-//     }
-// ).fromTo(
-//     links,
-//     {
-//         x: -20,
-//         opacity: 0,
-//     },
-//     {
-//         x: 0,
-//         opacity: 1,
-//         ease: "power1.inOut",
-//         stagger: 0.3,
-//         onComplete: function () {
-//             console.log(this)
-//         },
-//     },
-//     "-=0.3"
-// )
-
-
-menu.addEventListener("click", function () {
-  tl.reversed() ? tl.play() : tl.reverse();
+  reversed: true,
+  defaults: {
+    ease: "power2.inOut"
+  }
 });
-},{"gsap":"node_modules/gsap/index.js"}],"js/index.js":[function(require,module,exports) {
+
+tl.from(menuLinks, {
+  opacity: 0,
+  height: 0,
+  duration: 0.25
+}).from(links, {
+  x: -10,
+  opacity: 0,
+  stagger: 0.15
+}, "-=0.3");
+menuBurger.addEventListener("click", function () {
+  tl.reversed() ? tl.play() : tl.reverse();
+  document.querySelector(".left-container__menu").classList.toggle("open");
+});
+},{"gsap":"node_modules/gsap/index.js"}],"data.json":[function(require,module,exports) {
+module.exports = {
+  "data": [{
+    "main": "./img/main1.jpg",
+    "side": "./img/side1.jpg",
+    "description": "",
+    "link": "https://hsoulier.dev"
+  }, {
+    "main": "./img/main1.jpg",
+    "side": "./img/side1.jpg",
+    "description": "",
+    "link": "https://hsoulier.dev"
+  }, {
+    "main": "./img/main1.jpg",
+    "side": "./img/side1.jpg",
+    "description": "",
+    "link": "https://hsoulier.dev"
+  }, {
+    "main": "./img/main1.jpg",
+    "side": "./img/side1.jpg",
+    "description": "",
+    "link": "https://hsoulier.dev"
+  }]
+};
+},{}],"js/index.js":[function(require,module,exports) {
 "use strict";
+
+var _gsap = require("gsap");
 
 require("./load");
 
 require("./menu");
-},{"./load":"js/load.js","./menu":"js/menu.js"}],"../../../../../usr/local/share/.config/yarn/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+
+var _data = require("/data.json");
+
+var prevNav = document.querySelector(".left-container__chevron .prev");
+var nextNav = document.querySelector(".left-container__chevron .next");
+var masterImg = document.querySelector(".master-image__img");
+var sideImg = document.querySelector(".right-container__img");
+var index = parseInt(document.querySelector(".description__index").textContent) - 1;
+
+var increaseIndex = function increaseIndex(increment) {
+  index = index + increment;
+
+  if (index >= _data.data.length) {
+    index = 0;
+  } else if (index < 0) {
+    index = _data.data.length - 1;
+  }
+
+  return index;
+};
+
+var changeSlide = function changeSlide() {
+  var tl = _gsap.gsap.timeline({
+    defaults: {
+      ease: "Power2.inOut"
+    }
+  });
+
+  tl.to(masterImg, {
+    opacity: 0
+  }).to();
+};
+
+prevNav.addEventListener("click", function () {
+  console.log("Previous");
+  console.log(increaseIndex(-1));
+});
+nextNav.addEventListener("click", function () {
+  console.log("Next");
+  console.log(increaseIndex(1)); // changeSlide()
+});
+},{"gsap":"node_modules/gsap/index.js","./load":"js/load.js","./menu":"js/menu.js","/data.json":"data.json"}],"../../../../../usr/local/share/.config/yarn/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -5712,7 +5764,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50380" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62918" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Playfair+Display:400,700|Source+Sans+Pro:300,600&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Playfair+Display:400,700|Source+Sans+Pro:300,400,600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,800&family=Source+Sans+Pro:wght@300;400;600&display=swap");
 *,
 *:before,
@@ -25,6 +25,11 @@ img {
 
 ul {
   list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 @keyframes menuLtoR {
@@ -90,7 +95,9 @@ ul {
   width: 2rem;
   cursor: pointer;
   position: relative;
-  background-color: pink;
+}
+.left-container__menu.open ~ .menu-container a {
+  pointer-events: all;
 }
 .left-container__title {
   z-index: 1;
@@ -212,9 +219,17 @@ ul {
   position: absolute;
   left: 90%;
   top: 1.5rem;
-  background: white;
-  padding: 0.75rem 1rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.25rem;
+  font-size: 1.15rem;
+  padding: 1rem;
+  font-weight: 400;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  background-color: white;
+}
+.menu-container a {
+  pointer-events: none;
 }
 
 /*# sourceMappingURL=/style.a6dae8f7.css.map */
