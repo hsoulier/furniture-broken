@@ -33,18 +33,15 @@
         grid-template-areas:
             "title master-image side-image"
             "title master-image description";
-        grid-template-rows: repeat(2, 50%);
+        grid-template-rows: 40% minmax(26rem, auto);
     }
 }
 
 .menu-container {
     position: absolute;
-    top: 2.5%;
-    left: 24%;
-    z-index: 4;
-    background: #fff;
-    padding: 10px 20px;
+    left: 90%;
+    top: 1.5rem;
+    background: $white;
+    padding: .75rem 1rem;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-    height: 0;
-    opacity: 0;
 }

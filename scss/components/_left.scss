@@ -11,13 +11,12 @@
         padding: 5px 20px;
         flex-direction: row-reverse;
         position: fixed;
-        width: 100%;
-        z-index: 50;
+        width: 100vw;
         @include screen-min("desktop") {
+            width: 100%;
             flex-direction: row;
             position: static;
         }
-        // animation: menuLtoR 1s 1.5s ease-out forwards;
     }
 
     &__menu h2 {
@@ -41,6 +40,10 @@
         width: 2rem;
         cursor: pointer;
         position: relative;
+        background-color: pink;
+    }
+    &__menu.menu-burger.open ~ .menu-container {
+        
     }
 
     &__title {

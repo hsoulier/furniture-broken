@@ -5582,17 +5582,12 @@ TweenMaxWithCSS = gsapWithCSS.core.Tween;
 
 exports.TweenMax = TweenMaxWithCSS;
 exports.default = exports.gsap = gsapWithCSS;
-},{"./gsap-core.js":"node_modules/gsap/gsap-core.js","./CSSPlugin.js":"node_modules/gsap/CSSPlugin.js"}],"js/index.js":[function(require,module,exports) {
+},{"./gsap-core.js":"node_modules/gsap/gsap-core.js","./CSSPlugin.js":"node_modules/gsap/CSSPlugin.js"}],"js/load.js":[function(require,module,exports) {
 "use strict";
 
-var _gsap = _interopRequireDefault(require("gsap"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _gsap = require("gsap");
 
 var grid = document.getElementById("grid-master");
-var menu = document.querySelector(".menu-burger");
-var menuLinks = document.querySelector("ul.menu-container");
-var links = menuLinks.querySelectorAll("li");
 var leftPanel = document.querySelector(".left-container");
 var mainImg = document.querySelector(".master-image");
 var sideImg = document.querySelector(".side-image");
@@ -5600,7 +5595,7 @@ var desc = document.querySelector(".description");
 var navigation = document.querySelector(".left-container__chevron");
 var descEls = document.querySelectorAll(".description *");
 window.addEventListener("load", function () {
-  var load = _gsap.default.timeline({
+  var load = _gsap.gsap.timeline({
     defaults: {
       ease: "power2.inOut"
     }
@@ -5608,11 +5603,11 @@ window.addEventListener("load", function () {
 
   load.to(grid, {
     visibility: "visible",
-    duration: 0.05
+    duration: 0.1
   }).from(mainImg, {
     y: -50,
     opacity: 0,
-    duration: 0.8
+    duration: 1
   }).from(sideImg, {
     x: 20,
     opacity: 0,
@@ -5621,51 +5616,75 @@ window.addEventListener("load", function () {
     y: -50,
     opacity: 0,
     duration: 1
-  }).from(navigation, {
+  }, "-=.5").from(navigation, {
     opacity: 0,
     duration: 0.5
-  }).from(leftPanel.querySelector("h1"), {
+  }, "-=.3").from(leftPanel.querySelector("h1"), {
     y: 50,
     opacity: 0,
-    duration: 1.5
+    duration: 0.8
   }, "-=0.5").from(desc, {
     opacity: 0,
     duration: 0.5
-  }).from(descEls, {
+  }, "-=1.5").from(descEls, {
     x: -20,
     opacity: 0,
     duration: 0.5,
     stagger: 0.2
   }, "-=0.3");
 });
+},{"gsap":"node_modules/gsap/index.js"}],"js/menu.js":[function(require,module,exports) {
+"use strict";
 
-var tl = _gsap.default.timeline({
+var _gsap = require("gsap");
+
+var menuLinks = document.querySelector("ul.menu-container");
+var menu = document.querySelector(".menu-burger");
+var links = menuLinks.querySelectorAll("li");
+
+var tl = _gsap.gsap.timeline({
   paused: true,
   reversed: true
-});
+}); // tl.fromTo(
+//     menuLinks,
+//     {
+//         opacity: 0,
+//         height: 0,
+//     },
+//     {
+//         opacity: 1,
+//         height: "5rem",
+//         duration: 0.25,
+//     }
+// ).fromTo(
+//     links,
+//     {
+//         x: -20,
+//         opacity: 0,
+//     },
+//     {
+//         x: 0,
+//         opacity: 1,
+//         ease: "power1.inOut",
+//         stagger: 0.3,
+//         onComplete: function () {
+//             console.log(this)
+//         },
+//     },
+//     "-=0.3"
+// )
 
-tl.fromTo(menuLinks, {
-  opacity: 0,
-  height: 0
-}, {
-  opacity: 1,
-  height: "5rem",
-  duration: 0.25
-}).fromTo(links, {
-  x: -20,
-  opacity: 0
-}, {
-  x: 0,
-  opacity: 1,
-  ease: "power1.inOut",
-  delay: function delay(i) {
-    return i * 0.3;
-  }
-}, "-=0.3");
+
 menu.addEventListener("click", function () {
   tl.reversed() ? tl.play() : tl.reverse();
 });
-},{"gsap":"node_modules/gsap/index.js"}],"../../../../../usr/local/share/.config/yarn/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"gsap":"node_modules/gsap/index.js"}],"js/index.js":[function(require,module,exports) {
+"use strict";
+
+require("./load");
+
+require("./menu");
+},{"./load":"js/load.js","./menu":"js/menu.js"}],"../../../../../usr/local/share/.config/yarn/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -5693,7 +5712,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63877" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50380" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
