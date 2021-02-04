@@ -112,13 +112,18 @@ a {
   transform: rotate(-180deg) translateX(50%);
 }
 .left-container__chevron {
-  top: 80%;
+  top: 10rem;
   transform: translateX(50%);
   right: 0;
   position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+@media (min-width: 767px) {
+  .left-container__chevron {
+    top: 80%;
+  }
 }
 .left-container__chevron i {
   padding: 1rem;
@@ -137,18 +142,58 @@ a {
 .master-image {
   grid-area: master-image;
   z-index: -1;
+  overflow: hidden;
+}
+.master-image__container {
+  position: relative;
+  transform: translateX(0%);
+  height: 100%;
+  width: 400%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.master-image img {
+  height: 100%;
+  width: 25%;
+}
+.master-image .img-1 {
+  left: calc((1 - 1) * 100%);
+}
+.master-image .img-2 {
+  left: calc((2 - 1) * 100%);
+}
+.master-image .img-3 {
+  left: calc((3 - 1) * 100%);
+}
+.master-image .img-4 {
+  left: calc((4 - 1) * 100%);
 }
 
 .side-image {
   grid-area: side-image;
   z-index: -1;
+  overflow: hidden;
+}
+.side-image__container {
+  position: relative;
+  transform: translateX(0%);
+  height: 100%;
+  width: 400%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.side-image img {
+  height: 100%;
+  width: 25%;
 }
 
 .description {
   grid-area: description;
   background: black;
   color: white;
-  padding: 2rem 2.5rem;
+  padding: 3rem 2.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -163,7 +208,8 @@ a {
   user-select: none;
   font-family: "Playfair Display", serif;
   font-size: 8rem;
-  line-height: 1.2;
+  height: 5rem;
+  line-height: 0;
   font-weight: 800;
 }
 .description p {

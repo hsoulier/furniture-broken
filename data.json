@@ -1,28 +1,8 @@
 {
-    "data": [
-        {
-            "main": "./img/main1.jpg",
-            "side": "./img/side1.jpg",
-            "description": "",
-            "link": "https://hsoulier.dev"
-        },
-        {
-            "main": "./img/main1.jpg",
-            "side": "./img/side1.jpg",
-            "description": "",
-            "link": "https://hsoulier.dev"
-        },
-        {
-            "main": "./img/main1.jpg",
-            "side": "./img/side1.jpg",
-            "description": "",
-            "link": "https://hsoulier.dev"
-        },
-        {
-            "main": "./img/main1.jpg",
-            "side": "./img/side1.jpg",
-            "description": "",
-            "link": "https://hsoulier.dev"
-        }
+    "description": [
+        "Sweet candy canes cotton candy tart. Candy canes pastry jelly beans danish biscuit marzipan. Candy lollipop candy gummies sugar plum marshmallow jelly beans.",
+        "Brownie muffin fruitcake gummies oat cake. Cupcake cookie dragée bonbon sweet muffin tart. Biscuit wafer macaroon liquorice cotton candy croissant marshmallow. Biscuit cake toffee cake chocolate lollipop.",
+        "Sweet jelly cookie marshmallow carrot cake. Cupcake soufflé biscuit sugar plum caramels lollipop soufflé liquorice. Powder croissant bonbon icing.",
+        "Dessert pie sweet roll caramels tart pie dessert ice cream caramels. Cake gummies lemon drops wafer. Liquorice powder marzipan liquorice cheesecake sweet toffee lemon drops."
     ]
 }

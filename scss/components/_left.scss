@@ -56,10 +56,16 @@
         top: 30%;
         left: 50%;
         transform: rotate(-180deg) translateX(50%);
+        // @include screen-min("desktop") {
+        //     font-size: 4rem;
+        // }
     }
 
     &__chevron {
-        top: 80%;
+        top: 10rem;
+        @include screen-min("tablet") {
+            top: 80%;
+        }
         transform: translateX(50%);
         right: 0;
         position: absolute;

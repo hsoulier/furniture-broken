@@ -1,13 +1,27 @@
 .side-image {
     grid-area: side-image;
     z-index: -1;
+    overflow: hidden;
+    &__container {
+        position: relative;
+        transform: translateX(0%);
+        height: 100%;
+        width: 400%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    img {
+        height: 100%;
+        width: 25%;
+    }
 }
 
 .description {
     grid-area: description;
     background: $black;
     color: $white;
-    padding: 2rem 2.5rem;
+    padding: 3rem 2.5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -23,7 +37,8 @@
         user-select: none;
         font-family: $fontSerif;
         font-size: 8rem;
-        line-height: 1.2;
+        height: 5rem;
+        line-height: 0;
         font-weight: 800;
     }
 

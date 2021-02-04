@@ -1,4 +1,23 @@
 .master-image {
     grid-area: master-image;
     z-index: -1;
+    overflow: hidden;
+    &__container {
+        position: relative;
+        transform: translateX(0%);
+        height: 100%;
+        width: 400%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    img {
+        height: 100%;
+        width: 25%;
+    }
+    @for $i from 1 to 5 {
+        .img-#{$i} {
+            left: calc((#{$i} - 1) * 100%);
+        }
+    }
 }
