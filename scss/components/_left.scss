@@ -44,6 +44,9 @@
     &__menu.open ~ .menu-container a {
         pointer-events: all;
     }
+    &__menu.open ~ .menu-container {
+        height: auto;
+    }
 
     &__title {
         z-index: 1;

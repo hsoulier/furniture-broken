@@ -8,24 +8,19 @@ const masterContainer = document.querySelector(".master-image__container")
 const sideContainer = document.querySelector(".side-image__container")
 const numberEl = document.querySelector(".description__index")
 const descriptionEls = document.querySelectorAll(".description *")
-// let number = parseInt(numberEl.textContent)
 let index = 0
 
 const increaseIndex = (increment) => {
-    // number += increment
     index += increment
     if (index >= masterImg.length) {
         index = 0
-        // number = 1
     } else if (index < 0) {
-        // number = masterImg.length
         index = masterImg.length - 1
     }
     changeSlide()
 }
 
 const changeSlide = () => {
-    console.log(masterImg[index])
     const tl = gsap.timeline({
         defaults: { ease: "Power2.inOut", duration: 0.5, stagger: 0.1 },
     })
@@ -44,7 +39,7 @@ const changeSlide = () => {
             duration: 0.15,
             onComplete: () => {
                 numberEl.textContent = `0${index + 1}`
-                descriptionEl.textContent = description[index]
+                // descriptionEl.textContent = description[index]
             },
         },
         "-=.25"
@@ -52,10 +47,8 @@ const changeSlide = () => {
 }
 
 prevNav.addEventListener("click", () => {
-    console.log("Previous")
     increaseIndex(-1)
 })
 nextNav.addEventListener("click", () => {
-    console.log("Next")
     increaseIndex(1)
 })

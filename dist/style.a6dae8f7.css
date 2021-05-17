@@ -99,6 +99,9 @@ a {
 .left-container__menu.open ~ .menu-container a {
   pointer-events: all;
 }
+.left-container__menu.open ~ .menu-container {
+  height: auto;
+}
 .left-container__title {
   z-index: 1;
   user-select: none;
