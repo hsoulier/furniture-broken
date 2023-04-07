@@ -1,70 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="description" content="Furniture Collection" />
+    <link rel="stylesheet" href="./scss/style.scss" />
+    <link
+      href="https://cdn.lineicons.com/1.0.1/LineIcons.min.css"
+      rel="stylesheet"
+    />
+    <script src="./js/index.js" defer></script>
+    <title>Furniture Collection</title>
+  </head>
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="stylesheet" href="./scss/style.scss">
-        <link href="https://cdn.lineicons.com/1.0.1/LineIcons.min.css" rel="stylesheet">
-        <script src="./js/index.js" defer></script>
-        <title>Furniture Collection</title>
-    </head>
+  <body>
+    <section id="grid-master">
+      <div class="left-container">
+        <div class="left-container__menu">
+          <h2>furnito</h2>
+          <button aria-label="Menu" name="Menu" class="menu-burger">
+            <i class="lni-menu"></i>
+          </button>
+        </div>
+        <ul class="menu-container">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Products</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+        <h1 class="left-container__title">Furniture Collection</h1>
+        <div class="left-container__chevron">
+          <div class="prev">
+            <i class="lni-chevron-left"></i>
+          </div>
+          <div class="next">
+            <i class="lni-chevron-right"></i>
+          </div>
+        </div>
+      </div>
 
-    <body>
-        <section id="grid-master">
+      <div class="master-image">
+        <div class="master-image__container">
+          <img
+            src="./img/master1.jpg"
+            alt="Plan large du mobilier"
+            class="master-image__img img-1"
+          />
+          <img
+            src="./img/master2.jpg"
+            alt="Plan large du mobilier"
+            class="master-image__img img-2"
+          />
+          <img
+            src="./img/master3.jpg"
+            alt="Plan large du mobilier"
+            class="master-image__img img-3"
+          />
+          <img
+            src="./img/master4.jpg"
+            alt="Plan large du mobilier"
+            class="master-image__img img-4"
+          />
+        </div>
+      </div>
 
-            <div class="left-container">
-                <div class="left-container__menu">
-                    <h2>furnito</h2>
-                    <button class="menu-burger">
-                        <i class="lni-menu"></i>
-                    </button>
-                </div>
-                <ul class="menu-container">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Products</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-                <h1 class="left-container__title">Furniture Collection</h1>
-                <div class="left-container__chevron">
-                    <div class="prev">
-                        <i class="lni-chevron-left"></i>
-                    </div>
-                    <div class="next">
-                        <i class="lni-chevron-right"></i>
-                    </div>
-                </div>
-            </div>
-
-            <div class="master-image">
-                <div class="master-image__container">
-                    <img src="./img/master1.jpg" alt="Plan large du mobilier" class="master-image__img img-1">
-                    <img src="./img/master2.jpg" alt="Plan large du mobilier" class="master-image__img img-2">
-                    <img src="./img/master3.jpg" alt="Plan large du mobilier" class="master-image__img img-3">
-                    <img src="./img/master4.jpg" alt="Plan large du mobilier" class="master-image__img img-4">
-                </div>
-            </div>
-
-            <div class="side-image">
-                <div class="side-image__container">
-                    <img src="./img/side1.jpg" alt="Plan serré du mobilier" class="right-container__img img-1">
-                    <img src="./img/side2.jpg" alt="Plan serré du mobilier" class="right-container__img img-2">
-                    <img src="./img/side3.jpg" alt="Plan serré du mobilier" class="right-container__img img-3">
-                    <img src="./img/side4.jpg" alt="Plan serré du mobilier" class="right-container__img img-4">
-                </div>
-            </div>
-            <div class="description">
-                <div class="description__index">01</div>
-                <p>
-                    Sweet candy canes cotton candy tart. Candy canes pastry jelly beans danish biscuit marzipan. Candy
-                    lollipop candy gummies sugar plum marshmallow jelly beans.
-                </p>
-                <a href="https://hsoulier.dev">View More</a>
-            </div>
-
-        </section>
-
-    </body>
-
+      <div class="side-image">
+        <div class="side-image__container">
+          <img
+            src="./img/side1.jpg"
+            alt="Plan serré du mobilier"
+            class="right-container__img img-1"
+          />
+          <img
+            src="./img/side2.jpg"
+            alt="Plan serré du mobilier"
+            class="right-container__img img-2"
+          />
+          <img
+            src="./img/side3.jpg"
+            alt="Plan serré du mobilier"
+            class="right-container__img img-3"
+          />
+          <img
+            src="./img/side4.jpg"
+            alt="Plan serré du mobilier"
+            class="right-container__img img-4"
+          />
+        </div>
+      </div>
+      <div class="description">
+        <div class="description__index">01</div>
+        <p>
+          Sweet candy canes cotton candy tart. Candy canes pastry jelly beans
+          danish biscuit marzipan. Candy lollipop candy gummies sugar plum
+          marshmallow jelly beans.
+        </p>
+        <a href="https://hsoulier.dev">View More</a>
+      </div>
+    </section>
+  </body>
 </html>
